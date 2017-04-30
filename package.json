@@ -1,0 +1,42 @@
+{
+  "name": "gituser",
+  "version": "0.0.1",
+  "description": "Easily switch git users.",
+  "preferGlobal": true,
+  "main": "index.js",
+  "bin": {
+    "gituser": "./bin/gituser.js"
+  },
+  "engines": {
+    "node": ">= 0.6.x"
+  },
+  "scripts": {
+    "test": "standard && nyc --reporter=lcov --reporter=text-lcov ava",
+    "testing": "standard && ava"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/WindomZ/gituser.js.git"
+  },
+  "keywords": [
+    "git",
+    "user",
+    "switch"
+  ],
+  "author": "WindomZ <git.windomz@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/WindomZ/gituser.js/issues"
+  },
+  "homepage": "https://github.com/WindomZ/gituser.js#readme",
+  "dependencies": {
+    "commander": "^2.9.0",
+    "shelljs": "^0.7.7"
+  },
+  "devDependencies": {
+    "ava": "^0.19.1",
+    "coveralls": "^2.13.1",
+    "nyc": "^10.3.0",
+    "standard": "*"
+  }
+}
