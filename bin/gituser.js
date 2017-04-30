@@ -21,27 +21,27 @@ program
   .command('add <user> <name> [email]')
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, name, email, options) => {
-      noArgs = false
-      console.log('add %j %j %j', user, name, email)
-    }
+    noArgs = false
+    console.log('add %j %j %j', user, name, email)
+  }
   )
 
 program
   .command('remove <user>')
   .alias('rm')
   .action((user, options) => {
-      noArgs = false
-      console.log('remove %j', user)
-    }
+    noArgs = false
+    console.log('remove %j', user)
+  }
   )
 
 program
   .command('list')
   .alias('ls')
   .action((options) => {
-      noArgs = false
-      console.log('list')
-    }
+    noArgs = false
+    console.log('list')
+  }
   )
 
 program
@@ -49,17 +49,17 @@ program
   .option('-g --global', 'set global git user configuration', null, null)
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, options) => {
-      noArgs = false
-      console.log('set %j', user)
-    }
+    noArgs = false
+    console.log('set %j', user)
+  }
   )
 
 program
   .command('unset')
   .action((options) => {
-      noArgs = false
-      console.log('unset')
-    }
+    noArgs = false
+    console.log('unset')
+  }
   )
 
 program.parse(process.argv)
