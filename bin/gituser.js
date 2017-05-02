@@ -10,11 +10,19 @@ const program = require('commander')
 
 const pkg = require('../package.json')
 
+const init = require('../lib/init')
 const add = require('../lib/add')
 const remove = require('../lib/remove')
 const list = require('../lib/list')
 const set = require('../lib/set')
 const unset = require('../lib/unset')
+
+try {
+  init()
+} catch (e) {
+  console.error(e)
+  return
+}
 
 let noArgs = true
 
