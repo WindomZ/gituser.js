@@ -10,6 +10,12 @@ const program = require('commander')
 
 const pkg = require('../package.json')
 
+const add = require('../lib/add')
+const remove = require('../lib/remove')
+const list = require('../lib/list')
+const set = require('../lib/set')
+const unset = require('../lib/unset')
+
 let noArgs = true
 
 program
@@ -22,27 +28,39 @@ program
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, name, email, options) => {
     noArgs = false
-    console.log('add %j %j %j', user, name, email)
-  }
-  )
+
+    add(user, name, email, options)
+      .then()
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('remove <user>')
   .alias('rm')
   .action((user, options) => {
     noArgs = false
-    console.log('remove %j', user)
-  }
-  )
+
+    remove(user, options)
+      .then()
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('list')
   .alias('ls')
   .action((options) => {
     noArgs = false
-    console.log('list')
-  }
-  )
+
+    list(options)
+      .then()
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('set <user>')
@@ -50,17 +68,25 @@ program
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, options) => {
     noArgs = false
-    console.log('set %j', user)
-  }
-  )
+
+    set(user, options)
+      .then()
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('unset')
   .action((options) => {
     noArgs = false
-    console.log('unset')
-  }
-  )
+
+    unset(options)
+      .then()
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program.parse(process.argv)
 
