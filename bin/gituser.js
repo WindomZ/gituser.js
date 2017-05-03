@@ -73,13 +73,14 @@ program
 
 program
   .command('set <user>')
-  .option('-g --global', 'set global git user configuration', null, null)
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, options) => {
     noArgs = false
 
     set(user, options)
-      .then()
+      .then(r => {
+        console.log(r ? 'Success to set user "' + user + '"' : 'Not found "' + user + '"')
+      })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
       })

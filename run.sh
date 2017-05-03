@@ -7,7 +7,3 @@ echo '----------------------'
 echo '----------------------'
 ./bin/gituser.js list
 echo '----------------------'
-#./bin/gituser.js set xxx
-#echo '----------------------'
-#./bin/gituser.js unset
-#echo '----------------------'
