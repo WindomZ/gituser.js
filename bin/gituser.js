@@ -92,7 +92,9 @@ program
     noArgs = false
 
     unset(options)
-      .then()
+      .then(r => {
+        console.log(r ? 'Success to unset user' : 'Fail to unset user')
+      })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
       })
