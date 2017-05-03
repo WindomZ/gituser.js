@@ -17,12 +17,7 @@ const list = require('../lib/list')
 const set = require('../lib/set')
 const unset = require('../lib/unset')
 
-try {
-  init()
-} catch (e) {
-  console.error(e)
-  return
-}
+init()
 
 let noArgs = true
 
