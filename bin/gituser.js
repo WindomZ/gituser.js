@@ -33,7 +33,9 @@ program
     noArgs = false
 
     add(user, name, email, options)
-      .then()
+      .then(() => {
+        console.log('Success!')
+      })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
       })
@@ -46,7 +48,9 @@ program
     noArgs = false
 
     remove(user, options)
-      .then()
+      .then(r => {
+        console.log(r ? 'Success!' : 'Not found "' + user + '"')
+      })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
       })
