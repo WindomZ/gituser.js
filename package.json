@@ -20,8 +20,10 @@
   },
   "keywords": [
     "git",
+    "config",
     "user",
-    "switch"
+    "switch",
+    "switcher"
   ],
   "author": "WindomZ <git.windomz@gmail.com>",
   "license": "MIT",
