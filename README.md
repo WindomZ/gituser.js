@@ -43,6 +43,10 @@ $ gituser -h
     --debug        debug mode, such as print error tracks
 ```
 
+## Related
+
+[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written by Go
+
 ## License
 
 The [MIT License](https://github.com/WindomZ/gituser.js/blob/master/LICENSE)
