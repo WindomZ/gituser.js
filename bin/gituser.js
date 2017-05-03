@@ -10,6 +10,15 @@ const program = require('commander')
 
 const pkg = require('../package.json')
 
+const init = require('../lib/init')
+const add = require('../lib/add')
+const remove = require('../lib/remove')
+const list = require('../lib/list')
+const set = require('../lib/set')
+const unset = require('../lib/unset')
+
+init()
+
 let noArgs = true
 
 program
@@ -19,48 +28,82 @@ program
 
 program
   .command('add <user> <name> [email]')
+  .description('add user configuration')
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, name, email, options) => {
     noArgs = false
-    console.log('add %j %j %j', user, name, email)
-  }
-  )
+
+    add(user, name, email, options)
+      .then(() => {
+        console.log('Success!')
+      })
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('remove <user>')
   .alias('rm')
+  .description('remove user configuration')
   .action((user, options) => {
     noArgs = false
-    console.log('remove %j', user)
-  }
-  )
+
+    remove(user, options)
+      .then(r => {
+        console.log(r ? 'Success!' : 'Not found "' + user + '"')
+      })
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('list')
   .alias('ls')
+  .description('list user configuration')
   .action((options) => {
     noArgs = false
-    console.log('list')
-  }
-  )
+
+    list(options)
+      .then(r => {
+        console.log(r.join('\r\n'))
+      })
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('set <user>')
-  .option('-g --global', 'set global git user configuration', null, null)
+  .description('set local git user configuration from <user>')
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, options) => {
     noArgs = false
-    console.log('set %j', user)
-  }
-  )
+
+    set(user, options)
+      .then(r => {
+        console.log(r ? 'Success to set user "' + user + '"' : 'Not found "' + user + '"')
+      })
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program
   .command('unset')
+  .description('unset local git user configuration')
   .action((options) => {
     noArgs = false
-    console.log('unset')
-  }
-  )
+
+    unset(options)
+      .then(r => {
+        console.log(r ? 'Success to unset user' : 'Fail to unset user')
+      })
+      .catch(e => {
+        console.error(options.parent.debug ? e : e.message)
+      })
+  })
 
 program.parse(process.argv)
 

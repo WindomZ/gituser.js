@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+echo '----------------------'
+./bin/gituser.js add x1 aaa --private-github
+./bin/gituser.js add x2 aaa bbb
+echo '----------------------'
+./bin/gituser.js remove x1
+echo '----------------------'
+./bin/gituser.js list
+echo '----------------------'
