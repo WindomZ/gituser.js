@@ -63,7 +63,9 @@ program
     noArgs = false
 
     list(options)
-      .then()
+      .then(r => {
+        console.log(r.join('\r\n'))
+      })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
       })
