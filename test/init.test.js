@@ -5,7 +5,7 @@ const test = require('ava')
 
 const init = require('../lib/init')
 
-test('init pass', t => {
+test.serial('init pass', t => {
   try {
     init()
     t.pass()

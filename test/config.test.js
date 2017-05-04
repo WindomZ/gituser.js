@@ -15,7 +15,6 @@ const {init, write, read} = require('../lib/config').base
 const {writeDefault, writeAllDefault, readDefault} = require('../lib/config')
 
 test.serial('config init pass', t => {
-  console.log(__dirname)
   try {
     init(dir, fileName)
     t.pass()
