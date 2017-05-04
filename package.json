@@ -1,6 +1,6 @@
 {
   "name": "gituser",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Easily switch git users.",
   "preferGlobal": true,
   "main": "index.js",
