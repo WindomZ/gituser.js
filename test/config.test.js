@@ -18,10 +18,9 @@ const {writeDefault, writeAllDefault, readDefault} = require('../lib/config')
 test.serial('config init', t => {
   try {
     fs.unlinkSync(path.join(dir, fileName))
-    t.pass()
   } catch (e) {
-    t.fail(e)
   }
+  t.pass()
 })
 
 test.serial('config init pass', t => {
