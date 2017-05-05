@@ -10,7 +10,6 @@ test.serial('init pass', t => {
     init()
     t.pass()
   } catch (e) {
-    t.error(e)
-    t.fail()
+    t.fail(e)
   }
 })
