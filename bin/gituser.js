@@ -28,7 +28,8 @@ program
 
 program
   .command('add <user> <name> [email]')
-  .description('add user configuration')
+  .alias('save')
+  .description('save the specified user configuration information')
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, name, email, options) => {
     noArgs = false
@@ -45,7 +46,7 @@ program
 program
   .command('remove <user>')
   .alias('rm')
-  .description('remove user configuration')
+  .description('delete the specified user configuration information')
   .action((user, options) => {
     noArgs = false
 
@@ -61,7 +62,7 @@ program
 program
   .command('list')
   .alias('ls')
-  .description('list user configuration')
+  .description('list all user configuration information')
   .action((options) => {
     noArgs = false
 
@@ -76,7 +77,7 @@ program
 
 program
   .command('set <user>')
-  .description('set local git user configuration from <user>')
+  .description('set local git config user from <user> configuration information')
   .option('--private-github', 'private email address for GitHub', null, null)
   .action((user, options) => {
     noArgs = false
@@ -92,7 +93,7 @@ program
 
 program
   .command('unset')
-  .description('unset local git user configuration')
+  .description('unset local git config user')
   .action((options) => {
     noArgs = false
 

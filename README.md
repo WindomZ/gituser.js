@@ -28,11 +28,11 @@ $ gituser -h
 
   Commands:
 
-    add [options] <user> <name> [email]  add user configuration
-    remove|rm <user>                     remove user configuration
-    list|ls                              list user configuration
-    set [options] <user>                 set local git user configuration from <user>
-    unset                                unset local git user configuration
+    add|save [options] <user> <name> [email]  save the specified user configuration information
+    remove|rm <user>                          delete the specified user configuration information
+    list|ls                                   list all user configuration information
+    set [options] <user>                      set local git config user from <user> configuration information
+    unset                                     unset local git config user
 
   Easily switch git users.
 

@@ -3,6 +3,7 @@
  */
 const os = require('os')
 const path = require('path')
+const fs = require('fs')
 
 const test = require('ava')
 
@@ -14,8 +15,26 @@ const fileName = 'config.test'
 const {init, write, read} = require('../lib/config').base
 const {writeDefault, writeAllDefault, readDefault} = require('../lib/config')
 
+const _init = require('../lib/init')
+
+test.serial('init pass', t => {
+  try {
+    _init()
+    t.pass()
+  } catch (e) {
+    t.fail(e)
+  }
+})
+
+test.serial('config init', t => {
+  try {
+    fs.unlinkSync(path.join(dir, fileName))
+  } catch (e) {
+  }
+  t.pass()
+})
+
 test.serial('config init pass', t => {
-  console.log(__dirname)
   try {
     init(dir, fileName)
     t.pass()
@@ -33,7 +52,25 @@ test.serial('config init fail', t => {
   }
 })
 
-test.serial('config write pass', t => {
+test.serial('config write pass1', t => {
+  try {
+    let file = write(dir, fileName, null)
+    t.true(!!file)
+  } catch (e) {
+    t.fail(e)
+  }
+})
+
+test.serial('config read fail', t => {
+  try {
+    let obj = read(dir, fileName)
+    t.false(!!obj)
+  } catch (e) {
+    t.fail(e)
+  }
+})
+
+test.serial('config write pass2', t => {
   try {
     let file = write(dir, fileName, {
       'version': pkg.version,
@@ -49,7 +86,7 @@ test.serial('config write pass', t => {
   }
 })
 
-test.serial('config read pass', t => {
+test.serial('config read pass2', t => {
   try {
     let obj = read(dir, fileName)
     t.true(!!obj)
