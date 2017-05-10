@@ -45,7 +45,7 @@ $ gituser -h
 
 ## Related
 
-[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written by Go
+[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in Go
 
 ## License
 
