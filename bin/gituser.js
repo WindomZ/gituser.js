@@ -4,8 +4,9 @@
  */
 'use strict'
 
-const process = require('process')
+const os = require('os')
 
+require('colors')
 const program = require('commander')
 
 const pkg = require('../package.json')
@@ -36,7 +37,7 @@ program
 
     add(user, name, email, options)
       .then(() => {
-        console.log('Success!')
+        process.stdout.write('Success!'.green + os.EOL)
       })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
@@ -52,7 +53,7 @@ program
 
     remove(user, options)
       .then(r => {
-        console.log(r ? 'Success!' : 'Not found "' + user + '"')
+        process.stdout.write((r ? 'Success!'.green : 'Not found "'.red + user + '"'.red) + os.EOL)
       })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
@@ -68,7 +69,7 @@ program
 
     list(options)
       .then(r => {
-        console.log(r.join('\r\n'))
+        process.stdout.write((r.join('\r\n')) + os.EOL)
       })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
@@ -84,7 +85,8 @@ program
 
     set(user, options)
       .then(r => {
-        console.log(r ? 'Success to set user "' + user + '"' : 'Not found "' + user + '"')
+        process.stdout.write((r ? 'Success to set user "'.green +
+            user + '"'.green : 'Not found "'.red + user + '"'.red) + os.EOL)
       })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
@@ -99,7 +101,7 @@ program
 
     unset(options)
       .then(r => {
-        console.log(r ? 'Success to unset user' : 'Fail to unset user')
+        process.stdout.write((r ? 'Success to unset user'.green : 'Fail to unset user'.red) + os.EOL)
       })
       .catch(e => {
         console.error(options.parent.debug ? e : e.message)
