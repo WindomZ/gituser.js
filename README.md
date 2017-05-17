@@ -1,7 +1,6 @@
 # gituser.js
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/WindomZ/gituser.js.svg)](https://greenkeeper.io/)
-
 [![Build Status](https://travis-ci.org/WindomZ/gituser.js.svg?branch=master)](https://travis-ci.org/WindomZ/gituser.js)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Dependency](https://david-dm.org/WindomZ/gituser.js.svg)](https://david-dm.org/WindomZ/gituser.js)
@@ -45,9 +44,20 @@ $ gituser -h
     --debug        debug mode, such as print error tracks
 ```
 
+## Example
+
+```bash
+$ gituser add windomz WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
+$ gituser add windomz WindomZ '' --private-github               # Ibid, but email is GitHub privacy address
+$ gituser rm windomz                                            # Delete 'WindomZ' from configuration file
+$ gituser list                                                  # List all saved users
+$ gituser set windomz                                           # Set local git user and email
+$ gituser unset                                                 # Unset local git user and email
+```
+
 ## Related
 
-[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in Go
+[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in **Go**
 
 ## License
 
