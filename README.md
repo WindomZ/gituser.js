@@ -41,7 +41,8 @@ $ gituser -h
 
     -h, --help     output usage information
     -V, --version  output the version number
-    --debug        debug mode, such as print error tracks
+    --debug        debug mode, similar to sandbox mode
+    --log          log method, print error tracks
 ```
 
 ## Example
