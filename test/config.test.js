@@ -13,7 +13,7 @@ const dir = path.join(os.homedir(), '.gituser')
 const fileName = 'config.test'
 
 const {init, write, read} = require('../lib/config').base
-const {writeDefault, writeAllDefault, readDefault} = require('../lib/config')
+const {initDebug, writeDebug, writeAllDebug, readDebug} = require('../lib/config').debug
 
 const _init = require('../lib/init')
 
@@ -29,6 +29,7 @@ test.serial('init pass', t => {
 test.serial('config init', t => {
   try {
     fs.unlinkSync(path.join(dir, fileName))
+    fs.unlinkSync(path.join(dir, 'config.debug'))
   } catch (e) {
   }
   t.pass()
@@ -102,70 +103,80 @@ test.serial('config read pass2', t => {
   }
 })
 
-test.serial('config writeDefault fail', t => {
+test.serial('config initDebug pass', t => {
   try {
-    writeDefault()
+    initDebug()
+    t.pass()
+  } catch (e) {
+    t.fail(e)
+  }
+})
+
+test.serial('config writeDebug fail', t => {
+  try {
+    writeDebug()
     t.fail('Should not be error.')
   } catch (e) {
   }
   try {
-    writeDefault('xxx')
+    writeDebug('xxx')
     t.fail('Should not be error.')
   } catch (e) {
   }
   try {
-    writeDefault('xxx', 'uuu')
+    writeDebug('xxx', 'uuu')
     t.fail('Should not be error.')
   } catch (e) {
   }
   t.pass()
 })
 
-test.serial('config writeDefault pass1', t => {
+test.serial('config writeDebug pass1', t => {
   try {
-    writeDefault('x1', 'uuu', 'eee')
+    writeDebug('x1', 'uuu', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
   }
 })
 
-test.serial('config writeAllDefault fail', t => {
+test.serial('config writeAllDebug fail', t => {
   try {
-    writeAllDefault()
+    writeAllDebug()
     t.fail('Should not be error.')
   } catch (e) {
     t.pass()
   }
 })
 
-test.serial('config writeAllDefault pass', t => {
+test.serial('config writeAllDebug pass', t => {
   try {
-    writeAllDefault(readDefault())
+    console.log(readDebug())
+    writeAllDebug(readDebug())
     t.pass()
   } catch (e) {
     t.fail(e)
   }
 })
 
-test.serial('config readDefault pass', t => {
+test.serial('config readDebug pass', t => {
   try {
-    t.true(!!readDefault())
+    t.true(!!readDebug())
     t.pass()
   } catch (e) {
     t.fail(e)
   }
 })
 
-test.serial('config writeDefault pass2', t => {
+test.serial('config writeDebug pass2', t => {
   try {
-    writeDefault('x1', 'uuu', 'eee')
+    writeDebug('x1', 'uuu', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
   }
   try {
-    writeDefault('x2', 'uuu', 'eee')
+    writeDebug('x2', 'uuu', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
