@@ -10,9 +10,10 @@ const test = require('ava')
 const pkg = require('../package.json')
 
 const dir = path.join(os.homedir(), '.gituser')
-const fileName = 'config.test'
+const testFileName = 'config.test'
 
 const {init, write, read} = require('../lib/config').base
+const {writeAllDefault, readDefault} = require('../lib/config')
 const {initDebug, writeDebug, writeAllDebug, readDebug} = require('../lib/config').debug
 
 const _init = require('../lib/init')
@@ -28,7 +29,10 @@ test.serial('init pass', t => {
 
 test.serial('config init', t => {
   try {
-    fs.unlinkSync(path.join(dir, fileName))
+    fs.unlinkSync(path.join(dir, testFileName))
+  } catch (e) {
+  }
+  try {
     fs.unlinkSync(path.join(dir, 'config.debug'))
   } catch (e) {
   }
@@ -37,7 +41,7 @@ test.serial('config init', t => {
 
 test.serial('config init pass', t => {
   try {
-    init(dir, fileName)
+    init(dir, testFileName)
     t.pass()
   } catch (e) {
     t.fail(e)
@@ -46,7 +50,7 @@ test.serial('config init pass', t => {
 
 test.serial('config init fail', t => {
   try {
-    init(path.join(dir, fileName), fileName)
+    init(path.join(dir, testFileName), testFileName)
     t.fail('Should not be directory.')
   } catch (e) {
     t.pass()
@@ -55,7 +59,7 @@ test.serial('config init fail', t => {
 
 test.serial('config write pass1', t => {
   try {
-    let file = write(dir, fileName, null)
+    let file = write(dir, testFileName, null)
     t.true(!!file)
   } catch (e) {
     t.fail(e)
@@ -64,7 +68,7 @@ test.serial('config write pass1', t => {
 
 test.serial('config read fail', t => {
   try {
-    let obj = read(dir, fileName)
+    let obj = read(dir, testFileName)
     t.false(!!obj)
   } catch (e) {
     t.fail(e)
@@ -73,7 +77,7 @@ test.serial('config read fail', t => {
 
 test.serial('config write pass2', t => {
   try {
-    let file = write(dir, fileName, {
+    let file = write(dir, testFileName, {
       'version': pkg.version,
       'users': [{
         'user': 'xxx',
@@ -89,7 +93,7 @@ test.serial('config write pass2', t => {
 
 test.serial('config read pass2', t => {
   try {
-    let obj = read(dir, fileName)
+    let obj = read(dir, testFileName)
     t.true(!!obj)
     obj.users.every(u => {
       if (u.user === 'xxx') {
@@ -151,7 +155,6 @@ test.serial('config writeAllDebug fail', t => {
 
 test.serial('config writeAllDebug pass', t => {
   try {
-    console.log(readDebug())
     writeAllDebug(readDebug())
     t.pass()
   } catch (e) {
@@ -177,6 +180,15 @@ test.serial('config writeDebug pass2', t => {
   }
   try {
     writeDebug('x2', 'uuu', 'eee')
+    t.pass()
+  } catch (e) {
+    t.fail(e)
+  }
+})
+
+test.serial('config Default pass', t => {
+  try {
+    writeAllDefault(readDefault())
     t.pass()
   } catch (e) {
     t.fail(e)
