@@ -49,7 +49,7 @@ $ gituser -h
 
 ```bash
 $ gituser add windomz WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
-$ gituser add windomz WindomZ '' --private-github               # Ibid, but email is GitHub privacy address
+$ gituser save windomz WindomZ --private-github                 # Ibid, but email is GitHub privacy address
 $ gituser rm windomz                                            # Delete 'WindomZ' from configuration file
 $ gituser list                                                  # List all saved users
 $ gituser set windomz                                           # Set local git user and email
