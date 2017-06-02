@@ -5,6 +5,7 @@
 'use strict'
 
 const os = require('os')
+const util = require('util')
 
 require('colors')
 const program = require('commander')
@@ -73,7 +74,15 @@ program
     options.debug = options.parent.debug
     list(options)
       .then(r => {
-        process.stdout.write((r.join('\r\n')) + os.EOL)
+        if (r && r.length > 0) {
+          r.every(u => {
+            process.stdout.write(util.format('%s %s - %s(%s)',
+                '>>>'.gray, u.user.green, u.name.blue, u.email.cyan) + os.EOL)
+            return true
+          })
+        } else {
+          process.stdout.write('No user data!'.yellow + os.EOL)
+        }
       })
       .catch(e => {
         console.error(options.parent.log ? e : e.message)
