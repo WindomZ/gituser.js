@@ -4,18 +4,10 @@
  */
 'use strict'
 
-const os = require('os')
-const util = require('util')
-
-require('colors')
 const program = require('commander')
 
 const init = require('../lib/init')
-const add = require('../lib/add')
-const remove = require('../lib/remove')
-const list = require('../lib/list')
-const set = require('../lib/set')
-const unset = require('../lib/unset')
+const {getOptions, add, remove, list, set, unset} = require('./action')
 
 init()
 
@@ -35,14 +27,7 @@ program
   .action((name, email, options) => {
     noArgs = false
 
-    options.debug = options.parent.debug
-    add(name, email, options)
-      .then(() => {
-        process.stdout.write('Success!'.green + os.EOL)
-      })
-      .catch(e => {
-        console.error(options.parent.log ? e : e.message)
-      })
+    add(name, email, getOptions(options))
   })
 
 program
@@ -52,15 +37,7 @@ program
   .action((name, options) => {
     noArgs = false
 
-    options.debug = options.parent.debug
-    remove(name, options)
-      .then(r => {
-        process.stdout.write((r ? 'Success!'.green : 'Not found "'.red +
-            name + '"'.red) + os.EOL)
-      })
-      .catch(e => {
-        console.error(options.parent.log ? e : e.message)
-      })
+    remove(name, getOptions(options))
   })
 
 program
@@ -70,25 +47,7 @@ program
   .action((options) => {
     noArgs = false
 
-    options.debug = options.parent.debug
-    list(options)
-      .then(r => {
-        if (r && r.length > 0) {
-          r.every(u => {
-            process.stdout.write(util.format('%s %s %s',
-                '-'.gray, u.name.green, ('<' + u.email + '>').blue) +
-              os.EOL)
-            return true
-          })
-        } else {
-          process.stdout.write(util.format('%s %s',
-              '-'.gray, 'No user data!'.yellow) +
-            os.EOL)
-        }
-      })
-      .catch(e => {
-        console.error(options.parent.log ? e : e.message)
-      })
+    list(getOptions(options))
   })
 
 program
@@ -99,15 +58,7 @@ program
   .action((name, options) => {
     noArgs = false
 
-    options.debug = options.parent.debug
-    set(name, options)
-      .then(r => {
-        process.stdout.write((r ? 'Success to set user <'.green +
-            name + '>'.green : 'Not found "'.red + name + '"'.red) + os.EOL)
-      })
-      .catch(e => {
-        console.error(options.parent.log ? e : e.message)
-      })
+    set(name, getOptions(options))
   })
 
 program
@@ -116,15 +67,7 @@ program
   .action((options) => {
     noArgs = false
 
-    options.debug = options.parent.debug
-    unset(options)
-      .then(r => {
-        process.stdout.write((r ? 'Success to unset user'.green : 'Fail to unset user'.red) +
-          os.EOL)
-      })
-      .catch(e => {
-        console.error(options.parent.log ? e : e.message)
-      })
+    unset(getOptions(options))
   })
 
 program.parse(process.argv)
