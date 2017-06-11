@@ -119,25 +119,25 @@ test.serial('config initDebug pass', t => {
 test.serial('config writeDebug fail', t => {
   try {
     writeDebug()
-    t.fail('Should not be error.')
+    t.fail('Should be error.')
   } catch (e) {
   }
   try {
     writeDebug('xxx')
-    t.fail('Should not be error.')
+    t.fail('Should be error.')
   } catch (e) {
   }
   try {
     writeDebug('xxx', 'uuu')
-    t.fail('Should not be error.')
   } catch (e) {
+    t.fail('Should not be error.')
   }
   t.pass()
 })
 
 test.serial('config writeDebug pass1', t => {
   try {
-    writeDebug('x1', 'uuu', 'eee')
+    writeDebug('x1', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
@@ -147,7 +147,7 @@ test.serial('config writeDebug pass1', t => {
 test.serial('config writeAllDebug fail', t => {
   try {
     writeAllDebug()
-    t.fail('Should not be error.')
+    t.fail('Should be error.')
   } catch (e) {
     t.pass()
   }
@@ -173,13 +173,13 @@ test.serial('config readDebug pass', t => {
 
 test.serial('config writeDebug pass2', t => {
   try {
-    writeDebug('x1', 'uuu', 'eee')
+    writeDebug('x1', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
   }
   try {
-    writeDebug('x2', 'uuu', 'eee')
+    writeDebug('x2', 'eee')
     t.pass()
   } catch (e) {
     t.fail(e)
