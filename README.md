@@ -29,11 +29,11 @@ $ gituser -h
 
   Commands:
 
-    add|save [options] <user> <name> [email]  save the specified user configuration information
-    remove|rm <user>                          delete the specified user configuration information
-    list|ls                                   list all user configuration information
-    set [options] <user>                      set local git config user from <user> configuration information
-    unset                                     unset local git config user
+    add|save [options] <name> [email]  save the configuration information
+    remove|rm [name]                   delete the specified [name] configuration information
+    list|ls                            list all user configuration information
+    set|s [options] [name]             set local git config user from [name] configuration information
+    unset                              unset local git config user
 
   Easily switch git users.
 
@@ -48,12 +48,14 @@ $ gituser -h
 ## Example
 
 ```bash
-$ gituser add windomz WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
-$ gituser save windomz WindomZ --private-github                 # Ibid, but email is GitHub privacy address
-$ gituser rm windomz                                            # Delete 'WindomZ' from configuration file
-$ gituser list                                                  # List all saved users
-$ gituser set windomz                                           # Set local git user and email
-$ gituser unset                                                 # Unset local git user and email
+$ gituser add WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
+$ gituser save WindomZ --private-github                 # Ibid, but email is GitHub privacy address
+$ gituser rm WindomZ                                    # Delete selected from configuration file
+$ gituser rm                                            # Delete 'WindomZ' from configuration file
+$ gituser list                                          # List all saved users
+$ gituser set WindomZ                                   # Set local git user and email
+$ gituser set                                           # Set local git selected user and email
+$ gituser unset                                         # Unset local git user and email
 ```
 
 ## Related
