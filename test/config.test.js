@@ -9,7 +9,7 @@ const test = require('ava')
 
 const pkg = require('../package.json')
 
-const dir = path.join(os.homedir(), '.gituser')
+const dir = path.join(os.homedir(), '.gituser-test')
 const testFileName = 'config.test'
 
 const {init, write, read} = require('../lib/config').base
@@ -17,6 +17,29 @@ const {writeAllDefault, readDefault} = require('../lib/config')
 const {initDebug, writeDebug, writeAllDebug, readDebug} = require('../lib/config').debug
 
 const _init = require('../lib/init')
+
+function rmdirSync (dir) {
+  if (fs.existsSync(dir)) {
+    fs.readdirSync(dir).forEach(function (file) {
+      let curPath = path.join(dir, file)
+      if (fs.lstatSync(curPath).isDirectory()) {
+        rmdirSync(curPath)
+      } else {
+        fs.unlinkSync(curPath)
+      }
+    })
+    fs.rmdirSync(dir)
+  }
+}
+
+test.serial('start', t => {
+  try {
+    rmdirSync(dir)
+    t.pass()
+  } catch (e) {
+    t.fail(e)
+  }
+})
 
 test.serial('init pass', t => {
   try {
@@ -27,21 +50,17 @@ test.serial('init pass', t => {
   }
 })
 
-test.serial('config init', t => {
-  try {
-    fs.unlinkSync(path.join(dir, testFileName))
-  } catch (e) {
-    t.true(!!e)
-  }
-  try {
-    fs.unlinkSync(path.join(dir, 'config.debug'))
-  } catch (e) {
-    t.true(!!e)
-  }
-  t.pass()
-})
-
 test.serial('config init pass', t => {
+  fs.mkdirSync(dir, 0o777)
+  fs.mkdirSync(path.join(dir, testFileName), 0o777)
+  try {
+    init(dir, testFileName)
+    t.fail('Should be error!')
+  } catch (e) {
+    t.true(!!e)
+  }
+  fs.rmdirSync(path.join(dir, testFileName))
+  fs.rmdirSync(dir)
   try {
     init(dir, testFileName)
     t.pass()
@@ -195,4 +214,13 @@ test.serial('config Default pass', t => {
   } catch (e) {
     t.fail(e)
   }
+})
+
+test.serial('end', t => {
+  try {
+    rmdirSync(dir)
+  } catch (e) {
+    t.fail(e)
+  }
+  t.pass()
 })
