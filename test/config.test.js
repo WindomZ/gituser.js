@@ -31,10 +31,12 @@ test.serial('config init', t => {
   try {
     fs.unlinkSync(path.join(dir, testFileName))
   } catch (e) {
+    t.true(!!e)
   }
   try {
     fs.unlinkSync(path.join(dir, 'config.debug'))
   } catch (e) {
+    t.true(!!e)
   }
   t.pass()
 })
