@@ -9,7 +9,7 @@ const test = require('ava')
 
 const pkg = require('../package.json')
 
-const dir = path.join(os.homedir(), '.gituser-test')
+const testDir = path.join(os.homedir(), '.gituser-test')
 const testFileName = 'config.test'
 
 const {init, write, read} = require('../lib/config').base
@@ -20,8 +20,8 @@ const _init = require('../lib/init')
 
 function rmdirSync (dir) {
   if (fs.existsSync(dir)) {
-    fs.readdirSync(dir).forEach(function (file) {
-      let curPath = path.join(dir, file)
+    fs.readdirSync(dir).forEach(function (f) {
+      let curPath = path.join(dir, f)
       if (fs.lstatSync(curPath).isDirectory()) {
         rmdirSync(curPath)
       } else {
@@ -34,7 +34,7 @@ function rmdirSync (dir) {
 
 test.serial('start', t => {
   try {
-    rmdirSync(dir)
+    rmdirSync(testDir)
     t.pass()
   } catch (e) {
     t.fail(e)
@@ -51,18 +51,18 @@ test.serial('init pass', t => {
 })
 
 test.serial('config init pass', t => {
-  fs.mkdirSync(dir, 0o777)
-  fs.mkdirSync(path.join(dir, testFileName), 0o777)
+  fs.mkdirSync(testDir, 0o777)
+  fs.mkdirSync(path.join(testDir, testFileName), 0o777)
   try {
-    init(dir, testFileName)
+    init(testDir, testFileName)
     t.fail('Should be error!')
   } catch (e) {
     t.true(!!e)
   }
-  fs.rmdirSync(path.join(dir, testFileName))
-  fs.rmdirSync(dir)
+  fs.rmdirSync(path.join(testDir, testFileName))
+  fs.rmdirSync(testDir)
   try {
-    init(dir, testFileName)
+    init(testDir, testFileName)
     t.pass()
   } catch (e) {
     t.fail(e)
@@ -71,16 +71,17 @@ test.serial('config init pass', t => {
 
 test.serial('config init fail', t => {
   try {
-    init(path.join(dir, testFileName), testFileName)
+    init(path.join(testDir, testFileName), testFileName)
     t.fail('Should not be directory.')
   } catch (e) {
-    t.pass()
+    t.true(!!e)
   }
+  t.pass()
 })
 
 test.serial('config write pass1', t => {
   try {
-    let file = write(dir, testFileName, null)
+    let file = write(testDir, testFileName, null)
     t.true(!!file)
   } catch (e) {
     t.fail(e)
@@ -89,7 +90,7 @@ test.serial('config write pass1', t => {
 
 test.serial('config read fail', t => {
   try {
-    let obj = read(dir, testFileName)
+    let obj = read(testDir, testFileName)
     t.false(!!obj)
   } catch (e) {
     t.fail(e)
@@ -98,7 +99,7 @@ test.serial('config read fail', t => {
 
 test.serial('config write pass2', t => {
   try {
-    let file = write(dir, testFileName, {
+    let file = write(testDir, testFileName, {
       'version': pkg.version,
       'users': [{
         'user': 'xxx',
@@ -114,7 +115,7 @@ test.serial('config write pass2', t => {
 
 test.serial('config read pass2', t => {
   try {
-    let obj = read(dir, testFileName)
+    let obj = read(testDir, testFileName)
     t.true(!!obj)
     obj.users.every(u => {
       if (u.user === 'xxx') {
@@ -142,11 +143,13 @@ test.serial('config writeDebug fail', t => {
     writeDebug()
     t.fail('Should be error.')
   } catch (e) {
+    t.true(!!e)
   }
   try {
     writeDebug('xxx')
     t.fail('Should be error.')
   } catch (e) {
+    t.true(!!e)
   }
   try {
     writeDebug('xxx', 'uuu')
@@ -218,9 +221,9 @@ test.serial('config Default pass', t => {
 
 test.serial('end', t => {
   try {
-    rmdirSync(dir)
+    rmdirSync(testDir)
+    t.pass()
   } catch (e) {
     t.fail(e)
   }
-  t.pass()
 })
