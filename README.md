@@ -6,12 +6,12 @@
 [![Dependency](https://david-dm.org/WindomZ/gituser.js.svg)](https://david-dm.org/WindomZ/gituser.js)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 
-> Easily switch git users.
+> Easily switch git config users.
 
 [![NPM](https://nodei.co/npm/gituser.png)](https://nodei.co/npm/gituser/)
 
 [![gituser](https://img.shields.io/npm/v/gituser.svg)](https://www.npmjs.com/package/gituser)
-![status](https://img.shields.io/badge/status-stable-green.svg)
+[![status](https://img.shields.io/badge/status-stable-green.svg)](https://www.npmjs.com/package/gituser)
 
 ## Installation
 
@@ -50,8 +50,8 @@ $ gituser -h
 ```bash
 $ gituser add WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
 $ gituser save WindomZ --private-github                 # Ibid, but email is GitHub privacy address
-$ gituser rm WindomZ                                    # Delete selected from configuration file
-$ gituser rm                                            # Delete 'WindomZ' from configuration file
+$ gituser rm WindomZ                                    # Delete 'WindomZ' from configuration file
+$ gituser rm                                            # Delete selected from configuration file
 $ gituser list                                          # List all saved users
 $ gituser set WindomZ                                   # Set local git user and email
 $ gituser set                                           # Set local git selected user and email
