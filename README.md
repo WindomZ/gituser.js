@@ -2,16 +2,17 @@
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/WindomZ/gituser.js.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/WindomZ/gituser.js.svg?branch=master)](https://travis-ci.org/WindomZ/gituser.js)
+[![Coverage Status](https://coveralls.io/repos/github/WindomZ/gituser.js/badge.svg?branch=master)](https://coveralls.io/github/WindomZ/gituser.js?branch=master)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 [![Dependency](https://david-dm.org/WindomZ/gituser.js.svg)](https://david-dm.org/WindomZ/gituser.js)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 
-> Easily switch git users.
+> Easily switch git config users.
 
 [![NPM](https://nodei.co/npm/gituser.png)](https://nodei.co/npm/gituser/)
 
 [![gituser](https://img.shields.io/npm/v/gituser.svg)](https://www.npmjs.com/package/gituser)
-![status](https://img.shields.io/badge/status-stable-green.svg)
+[![status](https://img.shields.io/badge/status-stable-green.svg)](https://www.npmjs.com/package/gituser)
 
 ## Installation
 
@@ -21,7 +22,7 @@ npm install -g gituser
 
 ## Usage
 
-```bash
+```
 $ gituser -h
 
   Usage: gituser [options] [command]
@@ -50,8 +51,8 @@ $ gituser -h
 ```bash
 $ gituser add WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into configuration file
 $ gituser save WindomZ --private-github                 # Ibid, but email is GitHub privacy address
-$ gituser rm WindomZ                                    # Delete selected from configuration file
-$ gituser rm                                            # Delete 'WindomZ' from configuration file
+$ gituser rm WindomZ                                    # Delete 'WindomZ' from configuration file
+$ gituser rm                                            # Delete selected from configuration file
 $ gituser list                                          # List all saved users
 $ gituser set WindomZ                                   # Set local git user and email
 $ gituser set                                           # Set local git selected user and email
