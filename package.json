@@ -1,6 +1,6 @@
 {
   "name": "gituser",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Easily switch git users.",
   "preferGlobal": true,
   "main": "index.js",
@@ -8,7 +8,7 @@
     "gituser": "./bin/gituser.js"
   },
   "engines": {
-    "node": ">= 0.6.x"
+    "node": ">=6"
   },
   "scripts": {
     "test": "standard && nyc --reporter=lcov --reporter=text-lcov ava",
