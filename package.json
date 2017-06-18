@@ -1,6 +1,6 @@
 {
   "name": "gituser",
-  "version": "2.0.1",
+  "version": "2.1.0",
   "description": "Easily switch git users.",
   "preferGlobal": true,
   "main": "index.js",
@@ -34,13 +34,13 @@
   "dependencies": {
     "colors": "^1.1.2",
     "commander": "^2.9.0",
-    "inquirer": "^3.0.6",
-    "shelljs": "^0.7.7"
+    "inquirer": "^3.1.1",
+    "shelljs": "^0.7.8"
   },
   "devDependencies": {
     "ava": "^0.19.1",
     "coveralls": "^2.13.1",
-    "nyc": "^11.0.1",
+    "nyc": "^11.0.2",
     "standard": "*"
   }
 }
