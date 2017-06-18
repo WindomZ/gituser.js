@@ -9,6 +9,7 @@ const remove = require('./lib/remove')
 const list = require('./lib/list')
 const set = require('./lib/set')
 const unset = require('./lib/unset')
+const show = require('./lib/show')
 
 module.exports = init
 
@@ -17,3 +18,4 @@ module.exports.remove = remove
 module.exports.list = list
 module.exports.add = set
 module.exports.unset = unset
+module.exports.show = show
