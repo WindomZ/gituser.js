@@ -63,7 +63,7 @@ program
 
 program
   .command('unset')
-  .description('unset local git config user')
+  .description('unset local git user configuration')
   .action((options) => {
     noArgs = false
 
@@ -72,7 +72,7 @@ program
 
 program
   .command('show')
-  .description('show local git config user')
+  .description('displays the local git user configuration')
   .action((options) => {
     noArgs = false
 
