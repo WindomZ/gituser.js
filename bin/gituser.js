@@ -7,7 +7,7 @@
 const program = require('commander')
 
 const init = require('../lib/init')
-const {getOptions, add, remove, list, set, unset} = require('./action')
+const {getOptions, add, remove, list, set, unset, show} = require('./action')
 
 init()
 
@@ -68,6 +68,15 @@ program
     noArgs = false
 
     unset(getOptions(options))
+  })
+
+program
+  .command('show')
+  .description('show local git config user')
+  .action((options) => {
+    noArgs = false
+
+    show(getOptions(options))
   })
 
 program.parse(process.argv)
