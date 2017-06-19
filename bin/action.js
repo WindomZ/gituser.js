@@ -14,6 +14,7 @@ const _list = require('../lib/list')
 const _set = require('../lib/set')
 const _unset = require('../lib/unset')
 const _select = require('../lib/select')
+const _show = require('../lib/show')
 
 function getOptions (options) {
   if (options && options.parent) { options.debug = options.parent.debug }
@@ -106,4 +107,14 @@ function unset (options) {
     })
 }
 
-module.exports = {getOptions, add, remove, list, set, unset}
+function show (options) {
+  _show(options)
+    .then(r => {
+      process.stdout.write((r ? r.join(os.EOL).green : 'Not found user.* config'.red) + os.EOL)
+    })
+    .catch(e => {
+      console.error(options.parent.log ? e : e.message)
+    })
+}
+
+module.exports = {getOptions, add, remove, list, set, unset, show}

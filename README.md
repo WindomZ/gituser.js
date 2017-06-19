@@ -34,7 +34,8 @@ $ gituser -h
     remove|rm [name]                   delete the specified [name] configuration information
     list|ls                            list all user configuration information
     set|s [options] [name]             set local git config user from [name] configuration information
-    unset                              unset local git config user
+    unset                              unset local git user configuration
+    show                               displays the local git user configuration
 
   Easily switch git users.
 
@@ -56,7 +57,8 @@ gituser rm                                            # Delete the selected from
 gituser list                                          # List all saved users
 gituser set WindomZ                                   # Set local git user and email
 gituser set                                           # Set local git selected user and email
-gituser unset                                         # Unset local git user and email
+gituser unset                                         # Unset local git user configuration
+gituser show                                          # Displays the local git user configuration
 ```
 
 ## Related
