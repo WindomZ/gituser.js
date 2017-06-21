@@ -7,22 +7,22 @@
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
 [![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
 
-> Easily switch git config users.
+> 轻松切换git用户信息配置。
 
 [![NPM](https://nodei.co/npm/gituser.png)](https://nodei.co/npm/gituser/)
 
 [![gituser](https://img.shields.io/npm/v/gituser.svg)](https://www.npmjs.com/package/gituser)
 [![status](https://img.shields.io/badge/status-stable-green.svg)](https://www.npmjs.com/package/gituser)
 
-[中文文档](https://github.com/WindomZ/gituser.js/blob/master/README_Ch-zh.md#readme)
+[English](https://github.com/WindomZ/gituser.js/blob/master/README.md#readme)
 
-## Installation
+## 安装
 
 ```bash
 npm install -g gituser
 ```
 
-## CLI Usage
+## CLI用法
 
 ```
 $ gituser -h
@@ -49,26 +49,26 @@ $ gituser -h
     --log          log method, print error tracks
 ```
 
-For more help, see [Example](#example)
+更多帮助可以见[范例](#范例)
 
-## Example
+## 范例
 
 ```bash
-gituser add WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into lists
-gituser save WindomZ --private-github                 # Ibid, but email is GitHub privacy address
-gituser rm WindomZ                                    # Delete 'WindomZ' from lists
-gituser rm                                            # Delete the selected user from lists
-gituser list                                          # List all saved user lists
-gituser set WindomZ                                   # Set local git user and email
-gituser set                                           # Set local git selected user and email
-gituser unset                                         # Unset local git user configuration
-gituser show                                          # Displays the local git user configuration
+gituser add WindomZ WindomZ@users.noreply.github.com  # 添加或覆盖'WindomZ'到清单
+gituser save WindomZ --private-github                 # 同上，但是邮箱采用GitHub的私密邮箱地址
+gituser rm WindomZ                                    # 从清单删除'WindomZ'
+gituser rm                                            # 从清单删除选定的用户
+gituser list                                          # 列出所有用户清单
+gituser set WindomZ                                   # 从清单设置当前git用户和邮箱
+gituser set                                           # 从清单选择并设置当前git用户和邮箱
+gituser unset                                         # 清除当前git用户和邮箱
+gituser show                                          # 打印展示当前git用户和邮箱
 ```
 
-## Related
+## 相关
 
-[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in **Go**
+[WindomZ/gituser](https://github.com/WindomZ/gituser) - 通过**Go**编写实现
 
-## License
+## 许可
 
 The [MIT License](https://github.com/WindomZ/gituser.js/blob/master/LICENSE)
