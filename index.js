@@ -3,19 +3,11 @@
  */
 'use strict'
 
-const init = require('./lib/init')
-const add = require('./lib/add')
-const remove = require('./lib/remove')
-const list = require('./lib/list')
-const set = require('./lib/set')
-const unset = require('./lib/unset')
-const show = require('./lib/show')
+module.exports = require('./lib/init')
 
-module.exports = init
-
-module.exports.add = add
-module.exports.remove = remove
-module.exports.list = list
-module.exports.add = set
-module.exports.unset = unset
-module.exports.show = show
+module.exports.add = require('./lib/add')
+module.exports.remove = require('./lib/remove')
+module.exports.list = require('./lib/list')
+module.exports.set = require('./lib/set')
+module.exports.unset = require('./lib/unset')
+module.exports.show = require('./lib/show')
