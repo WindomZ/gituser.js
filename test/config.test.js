@@ -1,6 +1,8 @@
 /**
  * Created by WindomZ on 17-5-3.
  */
+'use strict'
+
 const os = require('os')
 const path = require('path')
 const fs = require('fs')
