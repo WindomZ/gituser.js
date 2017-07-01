@@ -82,5 +82,5 @@ program
 program.parse(process.argv)
 
 if (noArgs) {
-  program.outputHelp()
+  set()
 }
