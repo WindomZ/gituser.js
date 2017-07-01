@@ -16,7 +16,7 @@
 
 [中文文档](https://github.com/WindomZ/gituser.js/blob/master/README_Ch-zh.md#readme)
 
-## Installation
+## Install
 
 ```bash
 npm install -g gituser
@@ -69,6 +69,13 @@ gituser show                                          # Displays the local git u
 
 [WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in **Go**
 
+## Support
+
+Welcome your **Star**, make pull requests, report bugs, suggest ideas and discuss **gituser.js**, 
+i would love to hear what you think about **gituser.js** on [issues page](https://github.com/WindomZ/gituser.js/issues).
+
+Your support is my unremitting power.
+
 ## License
 
-The [MIT License](https://github.com/WindomZ/gituser.js/blob/master/LICENSE)
+[MIT](https://github.com/WindomZ/gituser.js/blob/master/LICENSE)
