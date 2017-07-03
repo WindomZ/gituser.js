@@ -69,10 +69,11 @@ gituser show                                          # 打印展示当前git用
 
 [WindomZ/gituser](https://github.com/WindomZ/gituser) - 通过**Go**编写实现
 
-## 支持
+## 贡献
 
-欢迎您**Star**，提交PR，
-在[issues page](https://github.com/WindomZ/gituser.js/issues)提交BUG，提出对**gituser.js**的想法，我很乐意一起讨论。
+欢迎fork和PR，在[issues page](https://github.com/WindomZ/gituser.js/issues)提交BUG，提出和讨论对**gituser.js**的想法，我很乐意一起参与。
+
+如果您喜欢这个项目，欢迎:star:支持！
 
 ## 许可
 

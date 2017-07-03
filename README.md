@@ -69,12 +69,12 @@ gituser show                                          # Displays the local git u
 
 [WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in **Go**
 
-## Support
+## Contributing
 
-Welcome your **Star**, make pull requests, report bugs, suggest ideas and discuss **gituser.js**, 
+Welcome to pull requests, report bugs, suggest ideas and discuss **gituser.js**, 
 i would love to hear what you think about **gituser.js** on [issues page](https://github.com/WindomZ/gituser.js/issues).
 
-Your support is my unremitting power.
+If you like it then you can put a :star: on it.
 
 ## License
 
