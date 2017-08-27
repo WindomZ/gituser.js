@@ -5,14 +5,14 @@
 [![Coverage Status](https://coveralls.io/repos/github/WindomZ/gituser.js/badge.svg?branch=master)](https://coveralls.io/github/WindomZ/gituser.js?branch=master)
 [![Dependency](https://david-dm.org/WindomZ/gituser.js.svg)](https://david-dm.org/WindomZ/gituser.js)
 [![Standard - JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com/)
-[![License](https://img.shields.io/badge/license-MIT-green.svg)](https://opensource.org/licenses/MIT)
+[![License](https://img.shields.io/badge/license-MIT-brightgreen.svg)](https://opensource.org/licenses/MIT)
 
-> Easily switch git config users.
+> Easily switch and manage git config users.
 
 [![NPM](https://nodei.co/npm/gituser.png)](https://nodei.co/npm/gituser/)
 
 [![gituser](https://img.shields.io/npm/v/gituser.svg)](https://www.npmjs.com/package/gituser)
-[![status](https://img.shields.io/badge/status-stable-green.svg)](https://www.npmjs.com/package/gituser)
+[![status](https://img.shields.io/badge/status-stable-brightgreen.svg)](https://www.npmjs.com/package/gituser)
 
 [中文文档](https://github.com/WindomZ/gituser.js/blob/master/README_Ch-zh.md#readme)
 
