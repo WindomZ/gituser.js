@@ -33,14 +33,14 @@
   "homepage": "https://github.com/WindomZ/gituser.js#readme",
   "dependencies": {
     "colors": "^1.1.2",
-    "commander": "^2.11.0",
+    "commander": "^2.12.1",
     "inquirer": "^4.0.0",
     "shelljs": "^0.7.8"
   },
   "devDependencies": {
     "ava": "^0.23.0",
     "coveralls": "^3.0.0",
-    "nyc": "^11.1.0",
+    "nyc": "^11.3.0",
     "standard": "^10.0.3"
   }
 }
