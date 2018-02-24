@@ -59,13 +59,13 @@ function list (options) {
       if (r && r.length > 0) {
         r.every(u => {
           process.stdout.write(util.format('%s %s %s',
-              '-'.gray, u.name.green, ('<' + u.email + '>').blue) +
+            '-'.gray, u.name.green, ('<' + u.email + '>').blue) +
             os.EOL)
           return true
         })
       } else {
         process.stdout.write(util.format('%s %s',
-            '-'.gray, 'No user data!'.yellow) +
+          '-'.gray, 'No user data!'.yellow) +
           os.EOL)
       }
     })
