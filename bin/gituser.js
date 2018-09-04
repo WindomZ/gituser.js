@@ -7,7 +7,7 @@
 const program = require('commander')
 
 const init = require('../lib/init')
-const {getOptions, add, remove, list, set, unset, show} = require('./action')
+const { getOptions, add, remove, list, set, unset, show } = require('./action')
 
 init()
 

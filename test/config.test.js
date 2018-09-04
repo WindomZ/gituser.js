@@ -14,9 +14,9 @@ const pkg = require('../package.json')
 const testDir = path.join(os.homedir(), '.gituser-test')
 const testFileName = 'config.test'
 
-const {init, write, read} = require('../lib/config').base
-const {writeAllDefault, readDefault} = require('../lib/config')
-const {initDebug, writeDebug, writeAllDebug, readDebug} = require('../lib/config').debug
+const { init, write, read } = require('../lib/config').base
+const { writeAllDefault, readDefault } = require('../lib/config')
+const { initDebug, writeDebug, writeAllDebug, readDebug } = require('../lib/config').debug
 
 const _init = require('../lib/init')
 

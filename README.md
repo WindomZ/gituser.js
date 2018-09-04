@@ -1,4 +1,11 @@
-# gituser.js
+```
+
+  ______ _____ _______ _     _ _______ _______  ______
+ |  ____   |      |    |     | |______ |______ |_____/
+ |_____| __|__    |    |_____| ______| |______ |    \_
+                                                      
+
+```
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/WindomZ/gituser.js.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/WindomZ/gituser.js.svg?branch=master)](https://travis-ci.org/WindomZ/gituser.js)
@@ -22,9 +29,9 @@
 npm install -g gituser
 ```
 
-## CLI Usage
+## Usage
 
-```
+```bash
 $ gituser -h
 
   Usage: gituser [options] [command]
@@ -51,7 +58,7 @@ $ gituser -h
 
 For more help, see [Example](#example)
 
-## Example
+## Examples
 
 ```bash
 gituser add WindomZ WindomZ@users.noreply.github.com  # Save 'WindomZ' into lists
@@ -64,10 +71,6 @@ gituser set                                           # Set local git selected u
 gituser unset                                         # Unset local git user configuration
 gituser show                                          # Displays the local git user configuration
 ```
-
-## Related
-
-[WindomZ/gituser](https://github.com/WindomZ/gituser) - Written in **Go**
 
 ## Contributing
 

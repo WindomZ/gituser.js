@@ -117,4 +117,4 @@ function show (options) {
     })
 }
 
-module.exports = {getOptions, add, remove, list, set, unset, show}
+module.exports = { getOptions, add, remove, list, set, unset, show }
