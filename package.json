@@ -8,7 +8,7 @@
     "gituser": "./bin/gituser.js"
   },
   "engines": {
-    "node": ">=6.2.2"
+    "node": ">=6.14"
   },
   "scripts": {
     "test": "standard && nyc --reporter=lcov --reporter=text-lcov ava",
