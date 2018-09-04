@@ -1,4 +1,11 @@
-# gituser.js
+```
+
+  ______ _____ _______ _     _ _______ _______  ______
+ |  ____   |      |    |     | |______ |______ |_____/
+ |_____| __|__    |    |_____| ______| |______ |    \_
+                                                      
+
+```
 
 [![Greenkeeper badge](https://badges.greenkeeper.io/WindomZ/gituser.js.svg)](https://greenkeeper.io/)
 [![Build Status](https://travis-ci.org/WindomZ/gituser.js.svg?branch=master)](https://travis-ci.org/WindomZ/gituser.js)
@@ -24,7 +31,7 @@ npm install -g gituser
 
 ## CLI用法
 
-```
+```bash
 $ gituser -h
 
   Usage: gituser [options] [command]
@@ -64,10 +71,6 @@ gituser set                                           # 从清单选择并设置
 gituser unset                                         # 清除当前git用户和邮箱
 gituser show                                          # 打印展示当前git用户和邮箱
 ```
-
-## 相关
-
-[WindomZ/gituser](https://github.com/WindomZ/gituser) - 通过**Go**编写实现
 
 ## 贡献
 
