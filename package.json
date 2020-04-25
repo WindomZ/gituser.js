@@ -33,7 +33,7 @@
   "homepage": "https://github.com/WindomZ/gituser.js#readme",
   "dependencies": {
     "colors": "^1.3.3",
-    "commander": "^5.0.0",
+    "commander": "^5.1.0",
     "inquirer": "^7.0.0",
     "shelljs": "^0.8.3"
   },
